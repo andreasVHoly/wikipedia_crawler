@@ -40,9 +40,10 @@ def runQuery(topic, maxresults):
             f.write(result.title.encode('utf-8') + "\n\n\n")
             f.write(result.content.encode('utf-8'))
             count += 1
-            print "Found file " + str(count) + "/50"
+            print "Found file " + str(count+1) + "/50"
             f.close()
-
+        else:
+            print "File did not conform to word limits"
 
 
 
@@ -60,4 +61,4 @@ runQuery(topic2, 1000)
 runQuery(topic3, 1000)
 runQuery(topic4, 1000)
 
-print "done"
+print "Done Processing"

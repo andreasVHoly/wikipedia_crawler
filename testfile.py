@@ -4,9 +4,14 @@ def countWords(query):
     count = 0
     for i in query.split():
         count += 1
-    if count < 200 or count > 2000:
+    if count < 200:
+        print "File was too small"
+        return False
+    elif count > 2000:
+        print "File was too large"
         return False
     else:
+        print "File accepted with " + str(count) + " words"
         return True
 
 
@@ -15,11 +20,8 @@ def runQuery(topic, maxresults):
     print "Looking for topics in " + topic
     count = 0
     for i in returned:
-        if count == 49:
+        if count == 50:
             break
-
-
-
 
         try:
             result = wiki.page(i)
@@ -35,19 +37,13 @@ def runQuery(topic, maxresults):
 
 
         query = result.content.encode('utf-8')
-        if (countWords(query)):
+        if countWords(query):
             f = open(topic + "/output_" + str(count) + ".txt", "w")
             f.write(result.title.encode('utf-8') + "\n\n\n")
             f.write(result.content.encode('utf-8'))
             count += 1
             print "Found file " + str(count+1) + "/50"
             f.close()
-        else:
-            print "File did not conform to word limits"
-
-
-
-
 
 
 

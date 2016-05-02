@@ -26,6 +26,13 @@ def runQuery(topic, maxresults):
         except wiki.exceptions.DisambiguationError:
             print "DisambiguationError"
             continue
+        except wiki.exceptions.PageError:
+            print "PageError"
+            continue
+        except:
+            print "fok knows"
+            continue
+
 
         query = result.content.encode('utf-8')
         if (countWords(query)):

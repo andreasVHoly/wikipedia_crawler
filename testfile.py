@@ -15,12 +15,12 @@ def countWords(query):
         return True
 
 
-def runQuery(topic, maxresults):
+def runQuery(topic, maxresults, target):
     returned = wiki.search(topic, results=maxresults, suggestion=False)
     print "Looking for topics in " + topic
     count = 0
     for i in returned:
-        if count == 50:
+        if count == target:
             break
 
         try:
@@ -51,10 +51,21 @@ topic1 = "Computer Science"
 topic2 = "Information Retrieval"
 topic3 = "Machine Learning"
 topic4 = "Data Structures"
+topic5 = "3D Printing"
+topic6 = "Computer Network"
+topic7 = "Parallel Computing"
+topic8 = "Human Computer Interaction"
+topic9 = "Mobile Application Development"
+topic10 = "Cloud Computing"
 
-runQuery(topic1, 1000)
-runQuery(topic2, 1000)
-runQuery(topic3, 1000)
-runQuery(topic4, 1000)
-
+runQuery(topic1, 1000, 20)
+runQuery(topic2, 1000, 20)
+runQuery(topic3, 1000, 20)
+runQuery(topic4, 1000, 20)
+runQuery(topic5, 1000, 20)
+runQuery(topic6, 1000, 20)
+runQuery(topic7, 1000, 20)
+runQuery(topic8, 1000, 20)
+runQuery(topic9, 1000, 20)
+runQuery(topic10, 1000, 20)
 print "Done Processing"

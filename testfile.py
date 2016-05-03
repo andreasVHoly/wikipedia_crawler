@@ -42,7 +42,7 @@ def runQuery(topic, maxresults, target):
             f.write(result.title.encode('utf-8') + "\n\n\n")
             f.write(result.content.encode('utf-8'))
             count += 1
-            print "Found file " + str(count+1) + "/" + target
+            print "Found file " + str(count+1) + "/" + str(target)
             f.close()
 
 
